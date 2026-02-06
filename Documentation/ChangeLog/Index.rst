@@ -7,6 +7,11 @@
 ChangeLog
 =========
 
+Version 6.1.3
+=============
+
+*   [BUGFIX] Assign wind direction to correct array key
+
 Version 6.1.2
 =============
 
