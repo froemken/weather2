@@ -84,7 +84,7 @@ class WeatherAlertRepository extends Repository implements WeatherAlertRepositor
                 $andConstraints[] = $query->equals('preliminary_information', 0);
             }
             $query->matching($query->logicalAnd(...$andConstraints));
-        } catch (InvalidQueryException $invalidQueryException) {
+        } catch (InvalidQueryException) {
             // Do nothing. Return all records
         }
 
@@ -118,7 +118,7 @@ class WeatherAlertRepository extends Repository implements WeatherAlertRepositor
                 ->orderBy('uid', 'ASC');
 
             return $queryBuilder->executeQuery()->fetchAllAssociative();
-        } catch (\Exception $e) {
+        } catch (\Exception) {
             // Handle exception if needed
             return [];
         }
