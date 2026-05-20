@@ -42,6 +42,7 @@ return [
             'label' => 'LLL:EXT:weather2/Resources/Private/Language/locallang_db.xlf:tx_weather2_domain_model_currentweather.measure_timestamp',
             'config' => [
                 'type' => 'number',
+                'format' => 'integer',
                 'size' => 4,
             ],
         ],
@@ -50,6 +51,7 @@ return [
             'label' => 'LLL:EXT:weather2/Resources/Private/Language/locallang_db.xlf:tx_weather2_domain_model_currentweather.temperature_c',
             'config' => [
                 'type' => 'number',
+                'format' => 'decimal',
                 'size' => 30,
             ],
         ],
@@ -58,6 +60,7 @@ return [
             'label' => 'LLL:EXT:weather2/Resources/Private/Language/locallang_db.xlf:tx_weather2_domain_model_currentweather.pressure_hpa',
             'config' => [
                 'type' => 'number',
+                'format' => 'decimal',
                 'size' => 30,
             ],
         ],
@@ -66,6 +69,7 @@ return [
             'label' => 'LLL:EXT:weather2/Resources/Private/Language/locallang_db.xlf:tx_weather2_domain_model_currentweather.humidity_percentage',
             'config' => [
                 'type' => 'number',
+                'format' => 'integer',
                 'size' => 30,
             ],
         ],
@@ -74,6 +78,7 @@ return [
             'label' => 'LLL:EXT:weather2/Resources/Private/Language/locallang_db.xlf:tx_weather2_domain_model_currentweather.min_temp_c',
             'config' => [
                 'type' => 'number',
+                'format' => 'decimal',
                 'size' => 30,
             ],
         ],
@@ -82,6 +87,7 @@ return [
             'label' => 'LLL:EXT:weather2/Resources/Private/Language/locallang_db.xlf:tx_weather2_domain_model_currentweather.max_temp_c',
             'config' => [
                 'type' => 'number',
+                'format' => 'decimal',
                 'size' => 30,
             ],
         ],
@@ -89,7 +95,7 @@ return [
             'exclude' => 1,
             'label' => 'LLL:EXT:weather2/Resources/Private/Language/locallang_db.xlf:tx_weather2_domain_model_currentweather.wind_speed_m_p_s',
             'config' => [
-                'type' => 'number',
+                'type' => 'input',
                 'size' => 30,
             ],
         ],
@@ -98,6 +104,7 @@ return [
             'label' => 'LLL:EXT:weather2/Resources/Private/Language/locallang_db.xlf:tx_weather2_domain_model_currentweather.wind_direction_deg',
             'config' => [
                 'type' => 'number',
+                'format' => 'integer',
                 'size' => 30,
             ],
         ],
@@ -106,6 +113,7 @@ return [
             'label' => 'LLL:EXT:weather2/Resources/Private/Language/locallang_db.xlf:tx_weather2_domain_model_currentweather.pop_percentage',
             'config' => [
                 'type' => 'number',
+                'format' => 'integer',
                 'size' => 30,
             ],
         ],
@@ -114,6 +122,7 @@ return [
             'label' => 'LLL:EXT:weather2/Resources/Private/Language/locallang_db.xlf:tx_weather2_domain_model_currentweather.snow_volume',
             'config' => [
                 'type' => 'number',
+                'format' => 'decimal',
                 'size' => 30,
             ],
         ],
@@ -122,6 +131,7 @@ return [
             'label' => 'LLL:EXT:weather2/Resources/Private/Language/locallang_db.xlf:tx_weather2_domain_model_currentweather.rain_volume',
             'config' => [
                 'type' => 'number',
+                'format' => 'decimal',
                 'size' => 30,
             ],
         ],
@@ -130,6 +140,7 @@ return [
             'label' => 'LLL:EXT:weather2/Resources/Private/Language/locallang_db.xlf:tx_weather2_domain_model_currentweather.clouds_percentage',
             'config' => [
                 'type' => 'number',
+                'format' => 'integer',
                 'size' => 30,
             ],
         ],
@@ -157,6 +168,7 @@ return [
             'label' => 'LLL:EXT:weather2/Resources/Private/Language/locallang_db.xlf:tx_weather2_domain_model_currentweather.condition_code',
             'config' => [
                 'type' => 'number',
+                'format' => 'integer',
                 'size' => 4,
             ],
         ],
