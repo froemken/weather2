@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\Weather2\Helper;
 
-class CsvHelper
+readonly class CsvHelper
 {
     /**
      * Converts a CSV string into an array of rows.

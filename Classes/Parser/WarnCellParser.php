@@ -13,9 +13,11 @@ namespace JWeiland\Weather2\Parser;
 
 use JWeiland\Weather2\Helper\CsvHelper;
 
-class WarnCellParser implements WarnCellParserInterface
+readonly class WarnCellParser implements WarnCellParserInterface
 {
-    public function __construct(private readonly CsvHelper $csvHelper) {}
+    public function __construct(
+        private CsvHelper $csvHelper,
+    ) {}
 
     /**
      * @return array<int, mixed>
