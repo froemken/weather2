@@ -22,8 +22,6 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
  */
 class CurrentWeatherRepositoryTest extends FunctionalTestCase
 {
-    use InitializeFrontendControllerMockTrait;
-
     protected CurrentWeatherRepository $subject;
 
     protected array $coreExtensionsToLoad = [
@@ -41,8 +39,8 @@ class CurrentWeatherRepositoryTest extends FunctionalTestCase
         parent::setUp();
 
         $this->importCSVDataSet(__DIR__ . '/../../Fixtures/tx_weather2_domain_model_currentweather.csv');
+
         $this->subject = $this->getContainer()->get(CurrentWeatherRepository::class);
-        $this->createFrontendControllerMock();
     }
 
     #[Test]

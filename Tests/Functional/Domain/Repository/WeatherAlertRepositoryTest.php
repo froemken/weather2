@@ -25,8 +25,6 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
  */
 class WeatherAlertRepositoryTest extends FunctionalTestCase
 {
-    use InitializeFrontendControllerMockTrait;
-
     protected WeatherAlertRepository $subject;
 
     protected array $coreExtensionsToLoad = [
@@ -42,11 +40,6 @@ class WeatherAlertRepositoryTest extends FunctionalTestCase
     protected ServerRequestInterface $request;
 
     /**
-     * @var ConfigurationManager|MockObject
-     */
-    protected MockObject $configurationManagerMock;
-
-    /**
      * @throws Exception
      */
     protected function setUp(): void
@@ -54,10 +47,9 @@ class WeatherAlertRepositoryTest extends FunctionalTestCase
         parent::setUp();
 
         $this->subject = GeneralUtility::makeInstance(WeatherAlertRepository::class);
+
         $this->importCSVDataSet(__DIR__ . '/../../Fixtures/pages.csv');
         $this->importCSVDataSet(__DIR__ . '/../../Fixtures/tx_weather2_domain_model_weatheralert.csv');
-
-        $this->createFrontendControllerMock();
     }
 
     protected function tearDown(): void

@@ -22,8 +22,6 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
  */
 class DwdWarnCellRepositoryTest extends FunctionalTestCase
 {
-    use InitializeFrontendControllerMockTrait;
-
     protected DwdWarnCellRepository $subject;
 
     protected array $coreExtensionsToLoad = [
@@ -43,8 +41,6 @@ class DwdWarnCellRepositoryTest extends FunctionalTestCase
         $this->importCSVDataSet(__DIR__ . '/../../Fixtures/tx_weather2_domain_model_dwdwarncell.csv');
 
         $this->subject = GeneralUtility::makeInstance(DwdWarnCellRepository::class);
-
-        $this->createFrontendControllerMock();
     }
 
     protected function tearDown(): void
