@@ -32,7 +32,8 @@ class WeatherAlertRepository extends Repository implements WeatherAlertRepositor
     private const ALERT_TABLE_NAME = 'tx_weather2_domain_model_weatheralert';
 
     public function __construct(
-        private readonly ConnectionPool $connectionPool, private readonly Context $context,
+        private readonly ConnectionPool $connectionPool,
+        private readonly Context $context,
     ) {
         parent::__construct();
     }

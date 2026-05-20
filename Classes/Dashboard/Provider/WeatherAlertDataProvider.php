@@ -18,9 +18,7 @@ use TYPO3\CMS\Dashboard\Widgets\NumberWithIconDataProviderInterface;
 
 class WeatherAlertDataProvider implements NumberWithIconDataProviderInterface
 {
-    public function __construct(private readonly ConnectionPool $connectionPool)
-    {
-    }
+    public function __construct(private readonly ConnectionPool $connectionPool) {}
     /**
      * Return the number of weather alerts registered in TYPO3 database
      */

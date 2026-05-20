@@ -22,9 +22,7 @@ class WeatherAlertWidget implements WidgetInterface
     /**
      * @param array<string, mixed> $options
      */
-    public function __construct(private readonly WidgetConfigurationInterface $configuration, private readonly ViewFactoryInterface $viewFactory, private readonly array $options)
-    {
-    }
+    public function __construct(private readonly WidgetConfigurationInterface $configuration, private readonly ViewFactoryInterface $viewFactory, private readonly array $options) {}
 
     public function renderWidgetContent(): string
     {
