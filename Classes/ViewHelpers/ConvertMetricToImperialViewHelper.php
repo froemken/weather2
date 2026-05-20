@@ -38,7 +38,8 @@ class ConvertMetricToImperialViewHelper extends AbstractViewHelper
         );
     }
 
-    public  function render(): string {
+    public function render(): string
+    {
         $weatherModel = $this->arguments['weatherModel'];
         $convertedModel = clone $weatherModel;
 

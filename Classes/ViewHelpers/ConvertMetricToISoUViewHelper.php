@@ -14,7 +14,6 @@ namespace JWeiland\Weather2\ViewHelpers;
 use JWeiland\Weather2\Domain\Model\CurrentWeather;
 use JWeiland\Weather2\Service\WeatherConverterService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class ConvertMetricToISoUViewHelper extends AbstractViewHelper
@@ -39,7 +38,8 @@ class ConvertMetricToISoUViewHelper extends AbstractViewHelper
         );
     }
 
-    public function render(): string {
+    public function render(): string
+    {
         $weatherModel = $this->arguments['weatherModel'];
         $convertedModel = clone $weatherModel;
 

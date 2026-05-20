@@ -54,7 +54,7 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
         $inputMock = $this->createMock(InputInterface::class);
         $outputMock = $this->createMock(OutputInterface::class);
 
-        $inputMock->expects(self::exactly(3))
+        $inputMock->expects($this->exactly(3))
             ->method('getArgument')
             ->willReturnOnConsecutiveCalls(
                 '1,2,3',
@@ -64,18 +64,18 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
         // Mock the fetcher and parser services
         $this->fetcherMock = $this->createMock(WeatherAlertFetcherInterface::class);
-        $this->fetcherMock->expects(self::once())
+        $this->fetcherMock->expects($this->once())
             ->method('fetchData')
             ->willReturn($this->createMock(ResponseInterface::class));
 
         $this->parserMock = $this->createMock(WeatherAlertParserInterface::class);
-        $this->parserMock->expects(self::once())
+        $this->parserMock->expects($this->once())
             ->method('parse')
             ->willReturn(['warnings' => []]);
 
         // Mock the repository and cache service
         $this->cacheServiceMock = $this->createMock(CacheService::class);
-        $this->cacheServiceMock->expects(self::once())
+        $this->cacheServiceMock->expects($this->once())
             ->method('clearPageCache')
             ->with([42]);
 
