@@ -21,13 +21,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Extbase\Service\CacheService;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
-#[\AllowDynamicProperties] class DeutscherWetterdienstAlertServiceTest extends UnitTestCase
+#[\AllowDynamicProperties]
+class DeutscherWetterdienstAlertServiceTest extends UnitTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-    }
-
     public function testFetchAndStoreAlerts(): void
     {
         $inputMock = $this->createMock(InputInterface::class);
