@@ -29,6 +29,12 @@ class WeatherAlertRepositoryTest extends FunctionalTestCase
 
     protected WeatherAlertRepository $subject;
 
+    protected array $coreExtensionsToLoad = [
+        'typo3/cms-dashboard',
+        'typo3/cms-install',
+        'typo3/cms-scheduler',
+    ];
+
     protected array $testExtensionsToLoad = [
         'jweiland/weather2',
     ];

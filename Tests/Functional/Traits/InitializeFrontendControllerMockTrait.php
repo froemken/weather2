@@ -15,9 +15,6 @@ use TYPO3\CMS\Core\Core\SystemEnvironmentBuilder;
 use TYPO3\CMS\Core\Http\ServerRequest;
 use TYPO3\CMS\Core\TypoScript\AST\Node\RootNode;
 use TYPO3\CMS\Core\TypoScript\FrontendTypoScript;
-use TYPO3\CMS\Core\Utility\ArrayUtility;
-use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
-use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
 /**
  * Trait to initialize frontend controller mock
@@ -26,26 +23,11 @@ trait InitializeFrontendControllerMockTrait
 {
     public function createFrontendControllerMock(array $config = []): void
     {
-        $controllerMock = $this->createMock(TypoScriptFrontendController::class);
-        $controllerMock->cObj = new ContentObjectRenderer($controllerMock);
-        $controllerMock->cObj->data = [
-            'uid' => 1,
-            'pid' => 0,
-            'title' => 'Startpage',
-            'nav_title' => 'Car',
-        ];
-        // Set the configuration
-        new \ReflectionProperty($controllerMock, 'config');
-        ArrayUtility::mergeRecursiveWithOverrule($controllerMock->config, $config);
-
         $frontendTypoScript = new FrontendTypoScript(new RootNode(), [], [], []);
         $frontendTypoScript->setSetupArray([]);
 
-        $controllerMock->config = $config;
-
         $this->request = (new ServerRequest())
             ->withAttribute('applicationType', SystemEnvironmentBuilder::REQUESTTYPE_FE)
-            ->withAttribute('frontend.controller', $controllerMock)
             ->withAttribute('frontend.typoscript', $frontendTypoScript);
 
         $GLOBALS['TYPO3_REQUEST'] = $this->request;

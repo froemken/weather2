@@ -24,10 +24,13 @@ class DwdWarnCellRepositoryTest extends FunctionalTestCase
 {
     use InitializeFrontendControllerMockTrait;
 
-    /**
-     * @var DwdWarnCellRepository
-     */
-    protected $subject;
+    protected DwdWarnCellRepository $subject;
+
+    protected array $coreExtensionsToLoad = [
+        'typo3/cms-dashboard',
+        'typo3/cms-install',
+        'typo3/cms-scheduler',
+    ];
 
     protected array $testExtensionsToLoad = [
         'jweiland/weather2',
