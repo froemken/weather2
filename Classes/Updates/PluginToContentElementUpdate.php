@@ -17,17 +17,11 @@ use TYPO3\CMS\Install\Updates\AbstractListTypeToCTypeUpdate;
 /**
  * With TYPO3 13 all plugins have to be declared as content elements (CType) insteadof "list_type"
  */
-#[UpgradeWizard('weather2_migratePluginsToContentElementsUpdate')]
+#[UpgradeWizard(
+    identifier: 'weather2_migratePluginsToContentElementsUpdate',
+)]
 class PluginToContentElementUpdate extends AbstractListTypeToCTypeUpdate
 {
-    protected function getListTypeToCTypeMapping(): array
-    {
-        return [
-            'weather2_currentweather' => 'weather2_currentweather',
-            'weather2_weatheralert' => 'weather2_weatheralert',
-        ];
-    }
-
     public function getTitle(): string
     {
         return '[weather2] Migrate plugins to Content Elements';
@@ -37,5 +31,13 @@ class PluginToContentElementUpdate extends AbstractListTypeToCTypeUpdate
     {
         return 'The modern way to register plugins for TYPO3 is to register them as content element types. ' .
             'Running this wizard will migrate all weather2 plugins to content element (CType)';
+    }
+
+    protected function getListTypeToCTypeMapping(): array
+    {
+        return [
+            'weather2_currentweather' => 'weather2_currentweather',
+            'weather2_weatheralert' => 'weather2_weatheralert',
+        ];
     }
 }
