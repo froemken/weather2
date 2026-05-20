@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 if (!defined('TYPO3')) {
     die('Access denied.');
 }
@@ -17,7 +19,6 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'name,icon',
         'iconfile' => 'EXT:weather2/Resources/Public/Icons/tx_weather2_domain_model_currentweather.gif',
         'security' => [
             'ignorePageTypeRestriction' => true,
@@ -39,6 +40,7 @@ return [
                 'range' => [
                     'lower' => mktime(0, 0, 0, (int)date('m'), (int)date('d'), (int)date('Y')),
                 ],
+                'searchable' => false,
             ],
         ],
         'endtime' => [
@@ -53,6 +55,7 @@ return [
                 'range' => [
                     'lower' => mktime(0, 0, 0, (int)date('m'), (int)date('d'), (int)date('Y')),
                 ],
+                'searchable' => false,
             ],
         ],
         'name' => [
@@ -168,6 +171,7 @@ return [
                 'eval' => 'trim',
                 'default' => '',
                 'readOnly' => true,
+                'searchable' => false,
             ],
         ],
         'icon' => [

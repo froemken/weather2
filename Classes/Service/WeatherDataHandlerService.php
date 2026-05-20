@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\Weather2\Service;
 
+use Doctrine\DBAL\Exception;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Service\CacheService;
@@ -107,8 +108,8 @@ readonly class WeatherDataHandlerService
                 ->insert(self::CURRENT_WEATHER_TABLE_NAME)
                 ->values($weatherObjectArray)
                 ->executeStatement();
-        } catch (\Doctrine\DBAL\Exception $e) {
-            throw new \RuntimeException('Failed to save weather data to the database: ' . $e->getMessage());
+        } catch (Exception $e) {
+            throw new \RuntimeException('Failed to save weather data to the database: ' . $e->getMessage(), $e->getCode(), $e);
         }
     }
 

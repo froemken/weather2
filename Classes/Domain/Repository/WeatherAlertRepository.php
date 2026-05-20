@@ -32,7 +32,7 @@ class WeatherAlertRepository extends Repository implements WeatherAlertRepositor
     private const ALERT_TABLE_NAME = 'tx_weather2_domain_model_weatheralert';
 
     public function __construct(
-        private readonly ConnectionPool $connectionPool,
+        private readonly ConnectionPool $connectionPool, private readonly Context $context,
     ) {
         parent::__construct();
     }
@@ -76,7 +76,7 @@ class WeatherAlertRepository extends Repository implements WeatherAlertRepositor
             $andConstraints[] = $query->logicalOr(
                 $query->greaterThanOrEqual(
                     'end_date',
-                    GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('date', 'timestamp'),
+                    $this->context->getPropertyFromAspect('date', 'timestamp'),
                 ),
                 $query->equals('end_date', 0),
             );

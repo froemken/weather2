@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 if (!defined('TYPO3')) {
     die('Access denied.');
 }
@@ -18,14 +20,13 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'dwd_warn_cell,level,type,title,description,instruction',
         'iconfile' => 'EXT:weather2/Resources/Public/Icons/tx_weather2_domain_model_weatheralert.gif',
         'security' => [
             'ignorePageTypeRestriction' => true,
         ],
     ],
     'types' => [
-        '1' => ['showitem' => 'dwd_warn_cell, level, type, title, description, instruction, preliminary_information, start_date, end_date,--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'dwd_warn_cell, level, type, title, description, instruction, preliminary_information, start_date, end_date,--div--;core.form.tabs:access, starttime, endtime'],
     ],
     'columns' => [
         'starttime' => [
@@ -40,6 +41,7 @@ return [
                 'range' => [
                     'lower' => mktime(0, 0, 0, (int)date('m'), (int)date('d'), (int)date('Y')),
                 ],
+                'searchable' => false,
             ],
         ],
         'endtime' => [
@@ -54,6 +56,7 @@ return [
                 'range' => [
                     'lower' => mktime(0, 0, 0, (int)date('m'), (int)date('d'), (int)date('Y')),
                 ],
+                'searchable' => false,
             ],
         ],
         'dwd_warn_cell' => [
@@ -156,6 +159,7 @@ return [
                 'eval' => 'datetime,int',
                 'checkbox' => 0,
                 'default' => 0,
+                'searchable' => false,
             ],
         ],
         'end_date' => [
@@ -167,6 +171,7 @@ return [
                 'eval' => 'datetime,int',
                 'checkbox' => 0,
                 'default' => 0,
+                'searchable' => false,
             ],
         ],
         'comparison_hash' => [

@@ -25,7 +25,7 @@ readonly class CsvHelper
         $stream = fopen('php://memory', 'rb+');
 
         if ($stream === false) {
-            throw new \RuntimeException('Failed to open memory stream.');
+            throw new \RuntimeException('Failed to open memory stream.', 9288060786);
         }
 
         fwrite($stream, $csvData);

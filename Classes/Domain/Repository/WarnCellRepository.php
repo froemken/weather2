@@ -32,7 +32,7 @@ class WarnCellRepository implements WarnCellRepositoryInterface
                 $this->insertRecord($connection, $warnCellRecord);
             }
 
-            if ($progressBar !== null) {
+            if ($progressBar instanceof ProgressBar) {
                 $progressBar->advance();
             }
         }

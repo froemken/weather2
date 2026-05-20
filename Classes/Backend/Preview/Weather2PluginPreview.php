@@ -69,12 +69,7 @@ class Weather2PluginPreview extends StandardContentPreviewRenderer
         if (!$ttContentRecord->has('CType')) {
             return false;
         }
-
-        if (!in_array($ttContentRecord->get('CType'), self::ALLOWED_PLUGINS, true)) {
-            return false;
-        }
-
-        return true;
+        return in_array($ttContentRecord->get('CType'), self::ALLOWED_PLUGINS, true);
     }
 
     protected function addPluginName(ViewInterface $view, RecordInterface $ttContentRecord): void
@@ -95,11 +90,9 @@ class Weather2PluginPreview extends StandardContentPreviewRenderer
      */
     protected function getPiFlexFormData(RecordInterface $ttContentRecord): array
     {
-        $data = [];
         if ($ttContentRecord->has('pi_flexform') && $ttContentRecord->get('pi_flexform') !== '') {
-            $data = $this->flexFormTools->convertFlexFormContentToArray($ttContentRecord->get('pi_flexform'));
+            return $this->flexFormTools->convertFlexFormContentToArray($ttContentRecord->get('pi_flexform'));
         }
-
-        return $data;
+        return [];
     }
 }

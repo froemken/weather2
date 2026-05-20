@@ -20,19 +20,10 @@ use TYPO3\CMS\Dashboard\Widgets\WidgetInterface;
 class WeatherAlertWidget implements WidgetInterface
 {
     /**
-     * @var array<string, mixed>
-     */
-    private array $options;
-
-    /**
      * @param array<string, mixed> $options
      */
-    public function __construct(
-        private readonly WidgetConfigurationInterface $configuration,
-        private readonly ViewFactoryInterface $viewFactory,
-        array $options,
-    ) {
-        $this->options = $options;
+    public function __construct(private readonly WidgetConfigurationInterface $configuration, private readonly ViewFactoryInterface $viewFactory, private readonly array $options)
+    {
     }
 
     public function renderWidgetContent(): string

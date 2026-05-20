@@ -35,7 +35,7 @@ readonly class WeatherAlertFetcher implements WeatherAlertFetcherInterface
                 LogLevel::ERROR,
                 WeatherUtility::translate('message.api_response_null', 'deutscherwetterdienst'),
             );
-            throw new \RuntimeException('Invalid response from API.');
+            throw new \RuntimeException('Invalid response from API.', 2774378641);
         }
 
         return $response;

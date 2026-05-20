@@ -34,10 +34,8 @@ trait InitializeFrontendControllerMockTrait
             'title' => 'Startpage',
             'nav_title' => 'Car',
         ];
-
         // Set the configuration
-        $configProperty = new \ReflectionProperty($controllerMock, 'config');
-        $configProperty->setAccessible(true);
+        new \ReflectionProperty($controllerMock, 'config');
         ArrayUtility::mergeRecursiveWithOverrule($controllerMock->config, $config);
 
         $frontendTypoScript = new FrontendTypoScript(new RootNode(), [], [], []);

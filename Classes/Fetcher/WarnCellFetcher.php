@@ -30,7 +30,7 @@ readonly class WarnCellFetcher implements WarnCellFetcherInterface
 
         if ($response->getStatusCode() !== 200 || (string)$response->getBody() === '') {
             $this->logger->error('Invalid response from API.');
-            throw new \RuntimeException('Invalid response from API.');
+            throw new \RuntimeException('Invalid response from API.', 4487136702);
         }
 
         return $response;
